@@ -21,8 +21,9 @@ func (h *Handler) InitRoutes() *gin.Engine {
 		auth.POST("/add", h.addProduct)
 		auth.GET("/get", h.getProducts)
 		auth.GET("/get/:id", h.getProductById)
-		auth.DELETE("/buy/:id", h.buyProduct)
+		auth.POST("/buy/", h.buyProduct)
 		auth.PUT("/update/:id", h.updateProduct)
+		auth.PUT("/update/count", h.addCountProduct)
 	}
 
 	return router

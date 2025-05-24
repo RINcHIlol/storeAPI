@@ -1,16 +1,17 @@
 package service
 
 import (
-	"storeApi"
+	"storeApi/models"
 	"storeApi/pkg/repository"
 )
 
 type Store interface {
-	AddNewProduct(product storeApi.Product) (bool, error)
-	GetProducts() ([]storeApi.Product, error)
-	GetProductById(productId int) (storeApi.Product, error)
-	BuyProduct(productId int) (bool, error)
-	UpdateProductById(productId int, product storeApi.Product) (bool, error)
+	AddNewProduct(product models.Product) (bool, error)
+	AddCountProduct(productId int, count int) (int, error)
+	GetProducts() ([]models.Product, error)
+	GetProductById(productId int) (models.Product, error)
+	BuyProduct(order models.OrderRequest) (bool, error)
+	UpdateProductById(productId int, product models.Product) (bool, error)
 }
 
 type Service struct {
